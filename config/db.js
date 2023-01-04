@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const db = require("mongoose");
 
+//Parametro de configuracion requerido
 db.set("strictQuery", false);
 
 db.connect(process.env.MONGO_URI, {

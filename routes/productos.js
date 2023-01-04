@@ -9,6 +9,7 @@ router.use((req, res, next) => {
 })
 
 router.get('/', productos.findAll);
-
+router.get("/:id", productos.findOne);
+router.get('/cat/:categoria', productos.findByCategory);
 
 module.exports = router
