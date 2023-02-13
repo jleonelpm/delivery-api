@@ -1,5 +1,5 @@
 const express = require('express')
-const categorias = require('../controllers/categorias.controller')
+const orden = require('../controllers/orden.controller')
 const router = express.Router()
 
 // middleware that is specific to this router
@@ -9,8 +9,8 @@ router.use((req, res, next) => {
 })
 
 // define the home page route
-router.get('/', categorias.status);
-router.post('/create', categorias.addCat);
+router.get('/', orden.test);
+router.post('/create', orden.add);
 
 
 module.exports = router

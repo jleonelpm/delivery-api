@@ -13,3 +13,20 @@ exports.findAll = (req, res) => {
         });
       });
   };
+
+  exports.status = (req, res) => {
+    const data = {
+      result: 'successful'
+    }
+
+    res.send(data)
+  } 
+
+  exports.addCat = (req, res) => {
+    const cat = new Categorias({
+      nombre: 'test', //req.body.title,
+      imagen: 'imagen.png'//req.body.content,
+    })
+    cat.save()
+    res.send(cat)
+  } 
