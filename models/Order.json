@@ -1,0 +1,24 @@
+{
+    "status": "Activo",
+    "productos": [
+        {
+            "producto": "Mouse",
+            "precio": 200,
+            "cantidad": 1
+        },
+        {
+            "producto": "Keyboard",
+            "precio": 250,
+            "cantidad": 1
+        }
+    ],
+    "direccion": {
+        "calle": "conocido",
+        "numero": "25",
+        "telefono": "123456789",
+        "latitud": 88.23,
+        "longitu": 23.45
+    },
+    "cantidad_productos": 2,
+    "importe_total": 450.00
+}

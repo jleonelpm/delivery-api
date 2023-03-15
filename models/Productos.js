@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 
 const productoSchema = new mongoose.Schema({
+    codigo: String,
     nombre: String, // String is shorthand for {type: String}
-    precio: Number,
     descripcion: String,
+    precio_costo : Number,    
+    precio_mayoreo : Number,
+    precio: Number, /* Precio de Venta */
     proveedor: {
         nombre: String,
         direccion: {
             calle: String,
             latitud: Number,
-            longitud: Number
+            longitud: Number    
         }
     },
     categorias: Array,
