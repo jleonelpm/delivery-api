@@ -12,7 +12,10 @@
             "cantidad": 1
         }
     ],
-    "direccion": {
+    "cliente": {
+        "nombre" : "Juanita",
+        "apellido" : "May",
+        "email":"juanita@hotmail.com",
         "calle": "conocido",
         "numero": "25",
         "telefono": "123456789",

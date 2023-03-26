@@ -5,7 +5,10 @@ const ordenSchema = new mongoose.Schema({
     fecha: Date,
     status : String,
     productos: Array, //Array of products
-    direccion: {
+    cliente: { //Se cambio en lugar de direccion a cliente
+        nombre:String, //Se agregó este campo
+        apellido:String,
+        email:String,
         calle:String,
         numero: String,
         telefono: String,
