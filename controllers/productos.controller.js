@@ -4,6 +4,7 @@ exports.findAll = (req, res) => {
 
   Productos.find({})
     .then(data => {
+      //console.log(data);
       res.send(data);
     })
     .catch(err => {

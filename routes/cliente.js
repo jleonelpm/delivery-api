@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 })
 
 // define the home page route
-router.get('/', cliente.test);
+router.get('/', cliente.findAll);
 router.post('/create', cliente.addCliente);
 
 

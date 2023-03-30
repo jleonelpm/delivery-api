@@ -13,9 +13,9 @@ exports.add = (req, res) => {
   const data = req.body
   //console.log(req.body.direccion)
 
-/*   console.log(req.body)
-  res.send(typeof (data));
- */
+  /*   console.log(req.body)
+    res.send(typeof (data));
+   */
 
   const order = new Orden({
     fecha: Date.now(),
@@ -25,9 +25,9 @@ exports.add = (req, res) => {
 
   //res.send(data)
 
-  result = order.save((err,doc) => {
+  result = order.save((err, doc) => {
     if (err) res.send(err)
-    else res.send({inserted:"true"})
+    else res.send({ inserted: "true" })
   })
   //console.log(order);
   //res.send(result)

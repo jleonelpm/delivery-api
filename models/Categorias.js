@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let categoriaSchema = new mongoose.Schema({
+const categoriaSchema = new mongoose.Schema({
     nombre: String,
     imagen: String,
 });
@@ -8,6 +8,7 @@ let categoriaSchema = new mongoose.Schema({
 categoriaSchema.method("toJSON", function () {
     const { __v, _id, ...object } = this.toObject();
     object.id = _id;
+    console.log(object)
     return object;
 });
 

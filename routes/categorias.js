@@ -11,6 +11,9 @@ router.use((req, res, next) => {
 // define the home page route
 router.get('/', categorias.findAll);
 router.post('/create', categorias.addCat);
+// Getting all subscribers
+
+
 
 
 module.exports = router

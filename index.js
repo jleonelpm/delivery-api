@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-//const { db } = require("./config/db.js") 
+const startMongo  = require("./config/db.js") 
 const express = require('express');
 const cors = require('cors');
 const productos = require("./routes/productos")
@@ -8,6 +8,7 @@ const ordenes = require("./routes/orden")
 const clientes = require("./routes/cliente")
 
 const app = express();
+startMongo();
 
 //Realizados la llamada a jwt
 //const jwt = require("jsonwebtoken");

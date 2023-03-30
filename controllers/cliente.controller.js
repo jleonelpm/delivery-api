@@ -40,7 +40,7 @@ exports.addCliente = (req, res) => {
 
   result = cliente.save((err, doc) => {
     if (err) res.send(err)
-    else res.send({ inserted: "true" })
+    else res.send({ inserted: "successful" })
   })
 
 } 
