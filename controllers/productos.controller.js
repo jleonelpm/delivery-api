@@ -34,7 +34,7 @@ exports.findOne = (req, res) => {
 exports.findByCategory = (req, res) => {
   const category = req.params.categoria;
 
-  Productos.find({categorias : category})
+  Productos.find({ categorias: category })
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found Product with categoria " + category });
@@ -46,3 +46,17 @@ exports.findByCategory = (req, res) => {
         .send({ message: "Error retrieving Tutorial with categoria =" + category });
     });
 };
+
+
+exports.findLastProductInserted = (req, res) => {
+
+  Productos.findOne().sort({ _id: -1 }).exec()
+    .then(data => res.send(data))
+    .catch(error => {
+      res
+        .status(500)
+        .send({ message: "Error getting the last Product inserted" });
+    });
+
+};
+

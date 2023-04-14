@@ -1,5 +1,7 @@
 const express = require('express')
 const productos = require('../controllers/productos.controller')
+const authMiddleware = require("../middleware/auth");
+
 const router = express.Router()
 
 // middleware that is specific to this router
@@ -8,8 +10,10 @@ router.use((req, res, next) => {
     next() //Invoque the any next funcion 
 })
 
-router.get('/', productos.findAll);
-router.get("/:id", productos.findOne);
-router.get('/cat/:categoria', productos.findByCategory);
+router.get('/', authMiddleware, productos.findAll);
+router.get("/id/:id", authMiddleware, productos.findOne);
+router.get('/cat/:categoria', authMiddleware, productos.findByCategory);
+router.get('/last_inserted', authMiddleware, productos.findLastProductInserted);
+
 
 module.exports = router
