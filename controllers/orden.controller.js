@@ -15,31 +15,28 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.add = (req, res) => {
+exports.add = async (req, res) => {
+  try {
 
-  const data = req.body
-  //console.log(req.body.direccion)
+    const data = req.body
+    //console.log(req.body.status);
 
-  /*   console.log(req.body)
-    res.send(typeof (data));
-   */
+    const order = new Orden({
+      fecha: Date.now(),
+      ...data,
+    });
 
-  const order = new Orden({
-    fecha: Date.now(),
-    ...data,
-  });
+    //console.log(order);
 
+    const savedOrder = await order.save();
+    res.status(201).json({ inserted: "true" });
 
-  //res.send(data)
+  } catch (error) {
+    console.log("Error message", error);
+    res.status(500).json({ error: 'Failed to save collection' });
+  }
 
-  result = order.save((err, doc) => {
-    if (err) res.send(err)
-    else res.send({ inserted: "true" })
-  })
-  //console.log(order);
-  //res.send(result)
-
-} 
+}
 
 exports.findOne = (req, res) => {
   const id = req.params.id;

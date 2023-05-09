@@ -11,10 +11,10 @@ function authMiddleware(req, res, next) {
   }
 
   try {
-    console.log("se intenta ingresar")
+    //console.log("se intenta ingresar")
     const decoded = jwt.verify(token, process.env.JWTSECRET);
     req.user = decoded;
-    console.log(req.decoded);
+    //console.log(req.decoded);
     next();
   } catch (error) {
     res.status(400).send("Invalid token");
