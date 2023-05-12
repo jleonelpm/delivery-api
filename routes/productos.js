@@ -12,6 +12,7 @@ router.use((req, res, next) => {
 
 router.get('/', authMiddleware, productos.findAll);
 router.get("/id/:id", authMiddleware, productos.findOne);
+router.get("/desc/:text", authMiddleware, productos.findByText);
 router.get('/cat/:categoria', authMiddleware, productos.findByCategory);
 router.get('/last_inserted', authMiddleware, productos.findLastProductInserted);
 
