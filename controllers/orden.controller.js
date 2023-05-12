@@ -29,7 +29,7 @@ exports.add = async (req, res) => {
     //console.log(order);
 
     const savedOrder = await order.save();
-    res.status(201).json({ inserted: "true" });
+    res.status(201).json({ inserted: "true", order: order });
 
   } catch (error) {
     console.log("Error message", error);
