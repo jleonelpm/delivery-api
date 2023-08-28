@@ -50,7 +50,6 @@ exports.findByCategory = (req, res) => {
 exports.findByText = (req, res) => {
   const keyword = req.params.text;
 
-
   const regex = new RegExp(keyword, 'i'); // 'i' flag for case-insensitive matching
   
   //const result = await collection.find({ field: { $regex: regex } }).toArray();
@@ -58,13 +57,13 @@ exports.findByText = (req, res) => {
   Productos.find({ nombre: { $regex: regex } })
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found Product with categoria " + keyword });
+        res.status(404).send({ message: "Not found Product with this word " + keyword });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Tutorial with categoria =" + keyword });
+        .send({ message: "Error retrieving Products with this word =" + keyword });
     });
 };
 
