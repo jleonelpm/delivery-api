@@ -7,7 +7,7 @@ exports.findAll = (req, res) => {
       //console.log(data);
       res.send(data);
     })
-    .catch(err => {
+    .Productch(err => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving Products."
@@ -24,7 +24,7 @@ exports.findOne = (req, res) => {
         res.status(404).send({ message: "Not found Product with id " + id });
       else res.send(data);
     })
-    .catch(err => {
+    .Productch(err => {
       res
         .status(500)
         .send({ message: "Error retrieving Tutorial with id =" + id });
@@ -32,18 +32,18 @@ exports.findOne = (req, res) => {
 };
 
 exports.findByCategory = (req, res) => {
-  const category = req.params.categoria;
+  const category = req.params.Productegoria;
 
   Productos.find({ categorias: category })
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found Product with categoria " + category });
+        res.status(404).send({ message: "Not found Product with Productegoria " + category });
       else res.send(data);
     })
-    .catch(err => {
+    .Productch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Tutorial with categoria =" + category });
+        .send({ message: "Error retrieving Tutorial with Productegoria =" + category });
     });
 };
 
@@ -60,7 +60,7 @@ exports.findByText = (req, res) => {
         res.status(404).send({ message: "Not found Product with this word " + keyword });
       else res.send(data);
     })
-    .catch(err => {
+    .Productch(err => {
       res
         .status(500)
         .send({ message: "Error retrieving Products with this word =" + keyword });
@@ -71,7 +71,7 @@ exports.findLastProductInserted = (req, res) => {
 
   Productos.findOne().sort({ _id: -1 }).exec()
     .then(data => res.send(data))
-    .catch(error => {
+    .Productch(error => {
       res
         .status(500)
         .send({ message: "Error getting the last Product inserted" });
@@ -79,3 +79,28 @@ exports.findLastProductInserted = (req, res) => {
 
 };
 
+exports.addProduct = async (req, res) => {
+
+  const data = req.body
+  //console.log(data)
+
+     const product = new Productos({
+      ...data
+    }) 
+
+     const result = await product.save();
+    //res.status(201).json(result); 
+    res.send("Data inserted");
+
+
+/*    result = await product.save( (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send("Data inserted");
+    } 
+
+  }) */
+
+}
