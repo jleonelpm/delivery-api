@@ -16,6 +16,7 @@ router.get("/desc/:text", authMiddleware, productos.findByText);
 router.get('/cat/:categoria', authMiddleware, productos.findByCategory);
 router.get('/last_inserted', authMiddleware, productos.findLastProductInserted);
 router.post('/create', authMiddleware, productos.addProduct);
+router.patch('/update/:id', authMiddleware, productos.updateProduct);
 
 
 module.exports = router
